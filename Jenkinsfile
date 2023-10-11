@@ -45,13 +45,13 @@ pipeline {
         stage('SonarQube Analysis') {
             script {
               def scannerHome = tool 'SonarQube Scanner';
-              withSonarQubeEnv('Your_SonarQube_Server_Name') {
+              withSonarQubeEnv('http://10.23.56.78:9000') {
                 sh "${scannerHome}/bin/sonar-scanner"
             }
         }
     }
 }
-                withSonarQubeEnv('SONARQUBE_SERVER') {
+                withSonarQubeEnv('$CC') {
                     sh 'mvn sonar:sonar'
                 }
             }
